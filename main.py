@@ -1,11 +1,16 @@
 from sys import exit
 from printer import print_menu
-from contact import add_contact, show_all_contact
-
+from contact import (
+    add_contact,
+    show_all_contact,
+    search_contact,
+    delete_contact,
+    update_contact
+)
 
 def main():
     contacts: list[dict] = [
-        {"first_name": 'ali', 'last_name': 'valiyev', 'phone': '3241234123', "group": 'other'}
+        {"first_name": 'Ali', 'last_name': 'Valiyev', 'phone': '3241234123', "group": 'other'}
     ]
     
     while True:
@@ -18,15 +23,16 @@ def main():
         elif choice == '2':
             show_all_contact(contacts)
         elif choice == '3':
-            pass
+            search_contact(contacts)
         elif choice == '4':
-            pass
+            delete_contact(contacts)
         elif choice == '5':
-            pass
+            update_contact(contacts)
         elif choice == '6':
-            pass
-        else:
+            print("Dastur yakunlandi.")
             exit(0)
+        else:
+            print("Noto'g'ri tanlov.")
 
 if __name__ == "__main__":
     main()
